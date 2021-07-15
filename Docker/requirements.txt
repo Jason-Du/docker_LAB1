@@ -1,2 +1,3 @@
 Flask==2.0.1
 uWSGI==2.0.19
+line-bot-sdk==1.18.0
