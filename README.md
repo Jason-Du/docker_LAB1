@@ -7,6 +7,8 @@
 - [Python Module List](#python-module-list)
 - [Flask 環境](#flask-環境)
 - [一般環境](#一般環境)
+- [Demo](#demo)
+- [Reference](#reference)
 
 
 ## Host 檔案架構
@@ -45,9 +47,14 @@ GIT_NAME=<your git name>
 GIT_EMAIL=<your git email>
 GITLAB_LOGIN=<your playlab gitlab login name>
 
+# docker configuration
+COURSE="aica"
+PORT_MAPPING="3000:3000"                        # host:container
+NGINX_PORT="8080"                               # host
+
 # project parameters, must be consistent with gitlab URLs
 RUN_FLASK=false                                 # start docker env with / without uWSGI and nginx proxy
-COURSE="aica-spring-2020"
+COURSE_GITLAB="aica-spring-2020"
 PROJECT="aica_lab4,aica_lab5"                   # projects without flask
 FLASK_PROJECT="lab6_line_server"                # flask projects
 CURRENT_FLASK_FOLDER="www/lab6_line_server"     # mount to /workspace/www in container
@@ -146,3 +153,12 @@ services:
             - MYSQL_DATABASE=dbname
             - MYSQL_USER=user
 ```
+
+
+## Demo
+- Non-flask mode：https://youtu.be/3V51_ke31Bg
+- Flask mode：https://youtu.be/BqmUY_oP9H0
+
+
+## Reference
+- [【Flask教學系列】Flask 為甚麼需要 WSGI 與 Nginx](https://www.maxlist.xyz/2020/05/06/flask-wsgi-nginx/)
