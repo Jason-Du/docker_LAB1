@@ -5,8 +5,8 @@ GITLAB_LOGIN="jason21125"
 
 # docker configuration
 COURSE="aichatbot"
-PORT_MAPPING="3000:3000"                        # host:container
-NGINX_PORT="8080"                               # host
+PORT_MAPPING="3002:3000"                        # host:container
+NGINX_PORT="8082"                               # host
 
 # project parameters, must be consistent with gitlab URLs
 RUN_FLASK=true                                 # start docker env with / without uWSGI and nginx proxy
