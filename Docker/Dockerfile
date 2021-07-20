@@ -6,7 +6,7 @@ WORKDIR /workspace/projects
 
 ARG UID=1000
 ARG GID=1000
-ENV NAME=base
+ARG NAME=base
 
 RUN mkdir /workspace/www
 
@@ -30,6 +30,7 @@ RUN useradd -u $UID -m -g $NAME -G plugdev $NAME && \
 	chmod 0440 /etc/sudoers.d/user
 
 RUN chown -R $NAME:$NAME /home/$NAME
+RUN chown -R $NAME:$NAME /Docker
 
 # Install required python modules
 RUN pip3 install -r /Docker/requirements.txt

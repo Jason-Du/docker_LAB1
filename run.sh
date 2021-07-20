@@ -98,10 +98,11 @@ echo "docker folder: $ROOT"
 cd "$ROOT"
 cp env_setup.sh "$ROOT"/Docker/env_setup.sh
 
+
 if [ $RUN_FLASK == true ]; then
     cd Docker
     cp ../env_setup.sh .env
-    docker-compose build --no-cache
+    docker-compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g) --build-arg USER=$(id -un) --no-cache --force-rm 
     docker-compose up -d
 
     if [ $OSTYPE == "msys" ]; then
