@@ -1,0 +1,9 @@
+# download imagesfiles
+docker pull mysql:5.7
+# build docker
+$ docker run --name my-mysql -e MYSQL_ROOT_PASSWORD=J8a7s0o2n25 -d -p 3306:3306 mysql
+# d for background
+# name Assign a name to the container
+# image : mysql
+$ mysql -h 127.0.0.1 -u root -p
+# setting port

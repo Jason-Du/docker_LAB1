@@ -102,10 +102,13 @@ cp env_setup.sh "$ROOT"/Docker/env_setup.sh
 if [ $RUN_FLASK == true ]; then
     cd Docker
     cp ../env_setup.sh .env
+#setting container dockerpfile
     docker-compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g) --build-arg USER=$(id -un) --no-cache --force-rm 
-    docker-compose up -d
-
+#linking all container
+	docker-compose up -d
+#windows winGW
     if [ $OSTYPE == "msys" ]; then
+#docker exec working in background get in container (docker compose file )
         winpty docker exec -it "playlab-$COURSE" bash
     else
         docker exec -it "playlab-$COURSE" bash
