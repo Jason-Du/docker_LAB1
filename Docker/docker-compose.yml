@@ -23,7 +23,6 @@ services:
         depends_on:
             - webserver # ensure that the webserver will always start first
             - db
-        network_mode: "host"
     webserver:
         container_name: playlab-nginx-${COURSE}
         image: nginx:1.21.0
@@ -45,8 +44,8 @@ services:
             MYSQL_PASSWORD: test
             MYSQL_ROOT_PASSWORD: test
         ports:
-            - 3306:3306
+            - 127.0.0.1:3306:3306
         volumes:
             - ./sql:/docker-entrypoint-initdb.d
             - ./cnf/custome2.cnf:/etc/my.cnf
-        network_mode: "host"
+    
